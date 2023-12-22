@@ -2,8 +2,10 @@ package com.cbi.blackFriday.service.impl;
 
 import com.cbi.blackFriday.entities.Offer;
 import com.cbi.blackFriday.entities.PaymentMethod;
+import com.cbi.blackFriday.exception.OfferException;
 import com.cbi.blackFriday.exception.OfferNotFoundException;
 import com.cbi.blackFriday.exception.OfferValidationException;
+import com.cbi.blackFriday.exception.ProductException;
 import com.cbi.blackFriday.repository.OfferRepository;
 import com.cbi.blackFriday.service.IOfferService;
 import org.slf4j.Logger;
@@ -18,20 +20,30 @@ import java.util.List;
 public class OfferServiceImpl implements IOfferService {
 
     @Autowired
-    private OfferRepository offerRepository;
+    private OfferRepository repository;
 
     private static final Logger log = LoggerFactory.getLogger(AuthenticationServiceImpl.class);
 
     @Override
     public Offer save(Offer offer) {
-        return offerRepository.save(offer);
+        log.debug("enter save offer service");
+        Offer savedOffer;
+
+        try {
+            savedOffer = repository.save(offer);
+        } catch (Exception e){
+            log.error("error saving offer: "+ e.getMessage());
+            throw new OfferException("error save offer");
+        }
+
+        return savedOffer;
     }
 
     @Override
     public List<Offer> getOfferByClient(Integer id) {
         log.debug("enter getOfferByClient offer service");
 
-        List<Offer> offers = offerRepository.findAll().stream().filter(o -> o.getIdClient().equals(id)).toList();
+        List<Offer> offers = repository.findAll().stream().filter(o -> o.getIdClient().equals(id)).toList();
 
         if (offers.isEmpty()){
             log.error("offer not found for client "+ id);

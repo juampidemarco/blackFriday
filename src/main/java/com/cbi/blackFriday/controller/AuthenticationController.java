@@ -3,6 +3,7 @@ package com.cbi.blackFriday.controller;
 import com.cbi.blackFriday.dao.request.SignUpRequest;
 import com.cbi.blackFriday.dao.request.SigninRequest;
 import com.cbi.blackFriday.dao.response.JwtAuthenticationResponse;
+import com.cbi.blackFriday.entities.User;
 import com.cbi.blackFriday.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthenticationController {
     private final AuthenticationService authenticationService;
     @PostMapping("/signup")
-    public ResponseEntity<JwtAuthenticationResponse> signup(@RequestBody SignUpRequest request) {
+    public ResponseEntity<User> signup(@RequestBody SignUpRequest request) {
         return ResponseEntity.ok(authenticationService.signup(request));
     }
 
