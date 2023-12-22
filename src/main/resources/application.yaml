@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    username: admin
+    password: qwertyui
+    url: jdbc:mysql://testbci.cxke8mokiz26.us-east-1.rds.amazonaws.com/bci_db
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  application:
+    name: spring-security
+token:
+  signing:
+    key: 413F4428472B4B6250655368566D5970337336763979244226452948404D6351
+
