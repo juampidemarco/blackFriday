@@ -14,10 +14,12 @@ public class Offer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
-	@Column(name = "id_product")
-	private Integer idProd;
-	@Column(name = "id_client")
-	private Integer idClient;
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name="id_product")
+	private Product product;
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name="id_user")
+	private User user;
 	@Column(name = "price")
 	private Double price;
 	@Column(name = "date")
@@ -34,4 +36,5 @@ public class Offer {
 	private String category;
 	@Column(name = "payment")
 	private PaymentMethod paymentMethod;
+
 }

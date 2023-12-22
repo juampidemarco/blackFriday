@@ -50,4 +50,11 @@ public class ApiExceptionHandler {
                 new ApiException(new Date(System.currentTimeMillis()), HttpStatus.INTERNAL_SERVER_ERROR.value(), ex.getMessage());
         return new ResponseEntity<>(apiException, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @ExceptionHandler(value = {PublishException.class})
+    private ResponseEntity<Object> handlePublishException(PublishException ex) {
+        ApiException apiException =
+                new ApiException(new Date(System.currentTimeMillis()), HttpStatus.NOT_ACCEPTABLE.value(), ex.getMessage());
+        return new ResponseEntity<>(apiException, HttpStatus.NOT_ACCEPTABLE);
+    }
 }

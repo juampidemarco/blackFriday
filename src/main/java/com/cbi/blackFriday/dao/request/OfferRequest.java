@@ -20,4 +20,6 @@ public class OfferRequest {
     private Integer duration;
     private Integer urgency;
     private String category;
+    private String paymentMethod;
+
 }

@@ -8,14 +8,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/product")
 public class ProductController {
 
     @Autowired
     private IProductService service;
 
-    @PostMapping("/product")
-    public ResponseEntity<Product> product(@RequestBody ProductRequest request) {
+    @PostMapping("/create")
+    public ResponseEntity<Product> create(@RequestBody ProductRequest request) {
         Product product = new Product();
         product.setName(request.getName());
         product.setDiscount(request.getDiscount());
