@@ -1,0 +1,305 @@
+{
+	"info": {
+		"_postman_id": "da416769-7ca3-4854-861f-bac62f697d5f",
+		"name": "Black Friday",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15249927",
+		"_collection_link": "https://juampidemarco.postman.co/workspace/Client~6d2d6d7c-bccd-44df-80ab-0397da1c5ce7/collection/15249927-da416769-7ca3-4854-861f-bac62f697d5f?action=share&source=collection_link&creator=15249927"
+	},
+	"item": [
+		{
+			"name": "SignUp - OK",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFucGFibG9AZ21haWwuY29tIiwiaWF0IjoxNzAyODQ4OTY2LCJleHAiOjE3MDI4NTA0MDZ9.jotNYzmHyt4WlvSc8YFk238KmNWQkU0Zf8hrN41FDyc",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"email\": \"juanpablo@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"lastName\": \"de marco\",\r\n    \"firstName\": \"juan pablo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SignUp - Fail - Pass is required",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFucGFibG9AZ21haWwuY29tIiwiaWF0IjoxNzAyODQ4OTY2LCJleHAiOjE3MDI4NTA0MDZ9.jotNYzmHyt4WlvSc8YFk238KmNWQkU0Zf8hrN41FDyc",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"email\": \"juanpablo@gmail.com\",\r\n    \"lastName\": \"de marco*\",\r\n    \"firstName\": \"juan*\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SignIn",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqcDJAZ21haWwuY29tIiwiaWF0IjoxNzAzMjEwNzMyLCJleHAiOjE3MDMyMTIxNzJ9.Py4NACxDZZwLaVQSl7F2aoxTzndcSPPGERQJJ4S3Cbc",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"email\": \"juanpablo@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/auth/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Producto - Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFucGFibG9AZ21haWwuY29tIiwiaWF0IjoxNzAzMjg3NjYyLCJleHAiOjE3MDMyODkxMDJ9.ooLBJUTidtYLH65J6qrSp1avJlXegTBH5UA_eq5CGtI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"name\": \"pantalon\",\r\n    \"price\": 15999,\r\n    \"stock\": 15,\r\n    \"discount\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/product/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product - Get",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFucGFibG9AZ21haWwuY29tIiwiaWF0IjoxNzAzMjg3NjYyLCJleHAiOjE3MDMyODkxMDJ9.ooLBJUTidtYLH65J6qrSp1avJlXegTBH5UA_eq5CGtI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/product/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Offer - Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFucGFibG9AZ21haWwuY29tIiwiaWF0IjoxNzAzMjg3NjYyLCJleHAiOjE3MDMyODkxMDJ9.ooLBJUTidtYLH65J6qrSp1avJlXegTBH5UA_eq5CGtI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"idProd\": 1,\r\n    \"idClient\": 1,\r\n    \"price\": 10.8,\r\n    \"amount\": 6,\r\n    \"importance\": 3,\r\n    \"duration\": 2,\r\n    \"urgency\": 1,\r\n    \"category\": 3,\r\n    \"paymentMethod\": \"CASH\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/offer/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"offer",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Offer - Show",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFucGFibG9AZ21haWwuY29tIiwiaWF0IjoxNzAzMjg3NjYyLCJleHAiOjE3MDMyODkxMDJ9.ooLBJUTidtYLH65J6qrSp1avJlXegTBH5UA_eq5CGtI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/offer/show/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"offer",
+						"show",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notify",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFucGFibG9AZ21haWwuY29tIiwiaWF0IjoxNzAzMjg3NjYyLCJleHAiOjE3MDMyODkxMDJ9.ooLBJUTidtYLH65J6qrSp1avJlXegTBH5UA_eq5CGtI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"idProd\": 1,\r\n        \"idClient\": 1,\r\n        \"price\": 10.0,\r\n        \"amount\": 6,\r\n        \"importance\": 1,\r\n        \"duration\": 1,\r\n        \"urgency\": 1,\r\n        \"category\": \"1\",\r\n        \"paymentMethod\": \"DEBIT\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/offer/publish",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"offer",
+						"publish"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
