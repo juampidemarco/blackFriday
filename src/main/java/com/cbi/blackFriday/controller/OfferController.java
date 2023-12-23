@@ -5,18 +5,13 @@ import com.cbi.blackFriday.entities.Offer;
 import com.cbi.blackFriday.entities.PaymentMethod;
 import com.cbi.blackFriday.exception.ProductNotFoundException;
 import com.cbi.blackFriday.exception.UserErrorException;
-import com.cbi.blackFriday.repository.UserRepository;
 import com.cbi.blackFriday.service.IKafkaPublisher;
 import com.cbi.blackFriday.service.IOfferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.SendResult;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 
 @RestController
 @RequestMapping("/api/v1/offer")
