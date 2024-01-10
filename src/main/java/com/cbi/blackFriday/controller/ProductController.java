@@ -18,7 +18,6 @@ public class ProductController {
     public ResponseEntity<Product> create(@RequestBody ProductRequest request) {
         Product product = new Product();
         product.setName(request.getName());
-        product.setDiscount(request.getDiscount());
         product.setPrice(request.getPrice());
         product.setStock(request.getStock());
 
@@ -27,7 +26,7 @@ public class ProductController {
         return ResponseEntity.ok(service.save(product));
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Product> findById(@PathVariable Integer id) {
         return ResponseEntity.ok(service.findById(id));
     }

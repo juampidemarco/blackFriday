@@ -13,7 +13,7 @@ public class OfferRequest {
     private Integer id;
     private Integer idProd;
     private Integer idClient;
-    private Double price;
+    private Double discount;
     private String date;
     private Integer amount;
     private Integer importance;

@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Setter
 @Getter
 @Entity
@@ -12,7 +14,7 @@ import lombok.Setter;
 public class Offer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "id_offer")
 	private Integer id;
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name="id_product")
@@ -20,10 +22,10 @@ public class Offer {
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name="id_user")
 	private User user;
-	@Column(name = "price")
-	private Double price;
+	@Column(name = "discount")
+	private Double discount;
 	@Column(name = "date")
-	private String date;
+	private LocalDateTime date;
 	@Column(name = "amount")
 	private Integer amount;
 	@Column(name = "importance")

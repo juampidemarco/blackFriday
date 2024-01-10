@@ -13,6 +13,6 @@ public class ProductRequest {
     private Integer id;
     private Double price;
     private String name;
-    private Double stock;
+    private Integer stock;
     private Double discount;
 }

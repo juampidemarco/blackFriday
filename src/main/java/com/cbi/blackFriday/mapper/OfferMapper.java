@@ -2,36 +2,18 @@ package com.cbi.blackFriday.mapper;
 
 import com.cbi.blackFriday.dao.request.OfferRequest;
 import com.cbi.blackFriday.entities.Offer;
-import com.cbi.blackFriday.entities.PaymentMethod;
-import com.cbi.blackFriday.repository.UserRepository;
-import com.cbi.blackFriday.service.IProductService;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
 
-@Component
-@AllArgsConstructor
-public class OfferMapper {
+@Mapper
+public interface OfferMapper{
 
-    @Autowired
-    private IProductService productService;
-    @Autowired
-    private UserRepository userRepository;
+    OfferMapper INSTANCE = Mappers.getMapper( OfferMapper.class );
 
-public Offer toOffer(OfferRequest request){
-
-    Offer offer = new Offer();
-    offer.setAmount(request.getAmount());
-    offer.setDate(request.getDate());
-    offer.setCategory(request.getCategory());
-    offer.setDuration(request.getDuration());
-    offer.setPrice(request.getPrice());
-    offer.setImportance(request.getImportance());
-    offer.setProduct(productService.findById(request.getIdProd()));
-    offer.setUser(userRepository.findById(request.getIdClient()).orElseThrow());
-    offer.setUrgency(request.getUrgency());
-    offer.setPaymentMethod(PaymentMethod.valueOf(request.getPaymentMethod()));
-
-    return offer;
-}
+    @Mapping(target = "id", source = "request.id")
+    @Mapping(target = "id_product", source = "request.idProd")
+    @Mapping(target = "id_user", source = "request.idClient")
+    @Mapping(target = "payment", source = "request.paymentMethod")
+    Offer toOffer(OfferRequest request);
 }
